@@ -4,7 +4,7 @@ function calcularPorcentaje (precioAntiguo, nuevoPrecio){
     return cantAumento
 }
 
-const Menu = [ '1) Ingresar Producto', '2) Actualizar precio', '3) Ver inventario']
+const Menu = [ '1) Ingresar Producto', '2) Actualizar precio', '3) Ver catálogo']
 const productos = []
 let cantProductos 
 class Producto {
@@ -20,8 +20,8 @@ while(true){
         case 1: 
             cantProductos = parseInt(prompt("Cuantos productos desea ingresar?"));
             for(let i = 0; i < cantProductos; i++){
-                const nombre = prompt("Ingrese el nombre de su producto")
-                const precio = prompt("Ingrese el precio de su producto")
+                const nombre = prompt("Ingrese el nombre de su producto " + (i + 1))
+                const precio = prompt("Ingrese el precio de su producto " + (i + 1))
                 const prod = new Producto(nombre, precio)
                 productos.push(prod)
             }
@@ -50,7 +50,7 @@ while(true){
                     productosStr += (i + 1) + ') ' + producto.nombre + ' $' + producto.precio + '\n';
                 }
             
-                alert("Inventario de productos:\n" + productosStr);
+                alert("Catálogo de productos:\n" + productosStr);
                 break;
             
             

@@ -23,6 +23,10 @@ while(true){
     switch(resp){
         case 1: 
             cantProductos = parseInt(prompt("Cuantos productos desea ingresar?"));
+                while(isNaN(cantProductos)){
+                    alert("Error: debe ingresar un número valido")
+                    cantProductos = parseInt(prompt("Cuantos productos desea ingresar?"));
+                }
             for(let i = 0; i < cantProductos; i++){
                 const nombre = prompt("Ingrese el nombre de su producto " + (i + 1))
                 let precio = parseFloat(prompt("Ingrese el precio de su producto " + (i + 1)))

@@ -15,13 +15,21 @@ class Producto {
 }
 while(true){
     let resp = parseInt(prompt("----MENU---- \n" + Menu.join("\n") + "\nIngrese la opción deseada"))
+        while(isNaN(resp)){
+            alert("Error: debe ingresar un número valido")
+            resp = parseInt(prompt("----MENU---- \n" + Menu.join("\n") + "\nIngrese la opción deseada"))
+        }
 
     switch(resp){
         case 1: 
             cantProductos = parseInt(prompt("Cuantos productos desea ingresar?"));
             for(let i = 0; i < cantProductos; i++){
                 const nombre = prompt("Ingrese el nombre de su producto " + (i + 1))
-                const precio = prompt("Ingrese el precio de su producto " + (i + 1))
+                let precio = parseFloat(prompt("Ingrese el precio de su producto " + (i + 1)))
+                    while(isNaN(precio)){
+                        alert('Error: debe ingresar un número valido')
+                        precio = parseFloat(prompt("Ingrese el precio de su producto " + (i + 1)))
+                    }
                 const prod = new Producto(nombre, precio)
                 productos.push(prod)
             }
